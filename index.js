@@ -1,3 +1,4 @@
+"use strict";
 
 var util = require('util');
 var clc = require('cli-color');
@@ -73,7 +74,7 @@ module.exports = function(level, thing, optionalMessage) {
 // Pre-pads the `string` with spaces based on `length`
 function prepad(string, length) {
   if (string.length < length) {
-    for (i=0;i<length-string.length;i++) {
+    for (var i = 0; i < length - string.length; i++) {
       string = ' ' + string;
     }
     return string;
