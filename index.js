@@ -20,6 +20,11 @@ var colors = {
 module.exports = function(level, thing, optionalMessage) {
   var now = new Date().toISOString(); // 2014-08-18T19:11:56.506Z
 
+  // undefined argument
+  if (isNullOrUndefined(level)) {
+    return undefined;
+  }
+
   // one argument, a string
   //   log('important message')
   if (arguments.length === 1 && isString(level)) {
@@ -90,4 +95,8 @@ function isObjectOrArray(x) {
 
 function isString(x) {
   return typeof x === 'string';
+}
+
+function isNullOrUndefined(x) {
+  return x === undefined || x === null;
 }
