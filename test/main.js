@@ -15,6 +15,15 @@ tap.test('log a plain string', function(t) {
   log('hellothere');
 });
 
+tap.test('log an empty string', function(t) {
+  console.log = function(str) {
+    t.equal(sc(str), d + ':  INFO: ');
+    t.end();
+  };
+
+  log('');
+});
+
 tap.test('log a WARN string', function(t) {
   console.log = function(str) {
     t.equal(sc(str), d + ':  WARN: mert');
@@ -91,6 +100,21 @@ tap.test('log a WARN array with a message', function(t) {
   };
 
   log('warn', [1,2,3], 'greer');
+});
+
+tap.test('dont die with weird inputs', function(t) {
+  console.log = function(str) {
+    t.notOk(str, 'this should never be called');
+  };
+
+  t.notOk(log(undefined), 'single undefined');
+  t.notOk(log(undefined, undefined), 'double undefined');
+  t.notOk(log(undefined, undefined, undefined), 'tripple undefined');
+  t.notOk(log(null), 'single undefined');
+  t.notOk(log(null, null), 'double null');
+  t.notOk(log(null, null, null), 'tripple null');
+  t.notOk(log(undefined, ''), 'undefined then string');
+  t.end();
 });
 
 
