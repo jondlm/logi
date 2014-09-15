@@ -102,6 +102,15 @@ tap.test('log a WARN array with a message', function(t) {
   log('warn', [1,2,3], 'greer');
 });
 
+tap.test('log a number', function(t) {
+  console.log = function(str) {
+    t.equal(sc(str), d + ':  INFO: 123');
+    t.end();
+  };
+
+  log(123);
+});
+
 tap.test('dont die with weird inputs', function(t) {
   console.log = function(str) {
     t.notOk(str, 'this should never be called');
