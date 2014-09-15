@@ -19,9 +19,10 @@ program to exit.
     log('info', 'info fo yo friends');
     log('warn', 'word of warning to your mother');
     log('error', 'some error text as an ERROR, wont kill your program');
-    log(myObject);
-    log(myArray);
-    log(myObject, 'hey everyone, come checkout my object as INFO!');
+    log({hello: 'world'});
+    log([0,1,2,3,4]);
+    log(123);
+    log({hello: 'world'}, 'hey everyone, come checkout my object as INFO!');
 
 You can throw pretty much anything at *logi* and it will log it. The first
 argument can optionally be one of the logging levels.

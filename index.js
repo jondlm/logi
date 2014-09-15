@@ -34,7 +34,7 @@ module.exports = function(level, thing, optionalMessage) {
 
   // one argument, an object or array
   //   log(myObject)
-  if (arguments.length === 1 && isObjectOrArray(level)) {
+  if (arguments.length === 1 && (isObjectOrArray(level) || isNumber(level))) {
     thing = level;
     level = 'INFO';
   }
@@ -99,4 +99,8 @@ function isString(x) {
 
 function isNullOrUndefined(x) {
   return x === undefined || x === null;
+}
+
+function isNumber(x) {
+  return typeof x === 'number';
 }
