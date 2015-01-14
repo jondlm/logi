@@ -2,6 +2,10 @@
   "name": "logi",
   "version": "0.0.4",
   "description": "A minimalist console logger for node.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jondlm/logi.git"
+  },
   "main": "index.js",
   "scripts": {
     "test": "node test/main.js"
